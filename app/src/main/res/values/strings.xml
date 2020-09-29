@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TD4</string>
+    <string name="Log">Login</string>
+    <string name="Logout">Logout</string>
+    <string name="Detail">Détails</string>
+    <string name="ok">OK</string>
+    <string name="web">WEB</string>
+    <string name="hint_compte">Veuillez rentrer votre nom</string>
+</resources>
