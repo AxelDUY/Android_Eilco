@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         GitHubService githubService = new Retrofit.Builder()
                 .baseUrl(GitHubService.ENDPOINT)
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(GitHubService.class);
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 EditText Repos = (EditText) findViewById(R.id.editTextRepos);
                 String SRepos = Repos.getText().toString();
-                githubService.searchRepos(SRepos).enqueue(new Callback<List<Repo>>() {
+                githubService.listRepos(SRepos).enqueue(new Callback<List<Repo>>() {
                     @Override
                     public void onResponse(Call<List<Repo>> call, Response<List<Repo>> response) {
                         afficherRepos(response.body());
