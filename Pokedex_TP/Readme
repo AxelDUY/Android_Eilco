@@ -1,1 +1,12 @@
 Bonjour
+
+Vous pourrez trouver ici mon projet pokedex.
+
+Durant ce projet, je n'ai pas réussi à importer plusieurs pokemon à la fois. J'ai donc décidé de l'enregistrer au moment du click.
+
+De ce fait, j'ai un problème avec la recherche des évotuions, car j'aurais aimé faire l'affichage via un appel dans la bdd pour récupérer l'id mais dans mon cas ce n'est pas possible.
+J'affiche donc seulement le nom des pokémons de la famille d'évolution. J'ai fait une tentative de recherche d'image via un adapater en utilisant ces nom sans succès.
+
+J'ai également enlevé la 8 ème génration de pokemon car elle n'est pas enregistré dans le deuxième API. De même pour Melmetal et sa sous-évolution.
+
+Pour finir, j'ai rajouter une partie Statistiques aux détails des pokemons.
