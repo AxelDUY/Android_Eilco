@@ -36,11 +36,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Gen1 extends Fragment {
+public class Gen6 extends Fragment {
     //Valeurs par défaut
-    int gen = 1;
-    int prem_poke = 1;
-    int der_poke = 151;
+    int gen = 6;
+    int prem_poke = 650;
+    int der_poke = 721;
     int verif = 0;
     String nom = "";
     String nompoke = "";
@@ -50,7 +50,7 @@ public class Gen1 extends Fragment {
     int nbrEvo = 0;
     String listevo = "";
 
-    public Gen1() { }
+    public Gen6() { }
 
     public void EnregistrerPokemon(Pokemon Pokemon, int i,String nomfr, String couleur, String description,int posEvo, String listevo) {
 

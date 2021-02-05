@@ -9,6 +9,11 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.pokedex_tp.Fragment.Gen1;
 import com.example.pokedex_tp.Fragment.Gen2;
 import com.example.pokedex_tp.Fragment.Gen3;
+import com.example.pokedex_tp.Fragment.Gen4;
+import com.example.pokedex_tp.Fragment.Gen5;
+import com.example.pokedex_tp.Fragment.Gen6;
+import com.example.pokedex_tp.Fragment.Gen7;
+import com.example.pokedex_tp.Fragment.Gen8;
 
 public class GenAdaptateur extends FragmentPagerAdapter {
 
@@ -33,6 +38,18 @@ public class GenAdaptateur extends FragmentPagerAdapter {
             case 2:
                 Gen3 gen3 = new Gen3();
                 return gen3;
+            case 3:
+                Gen4 gen4 = new Gen4();
+                return gen4;
+            case 4:
+                Gen5 gen5 = new Gen5();
+                return gen5;
+            case 5:
+                Gen6 gen6 = new Gen6();
+                return gen6;
+            case 6:
+                Gen7 gen7 = new Gen7();
+                return gen7;
 
             default:
                 return null;

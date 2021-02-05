@@ -38,6 +38,8 @@ public class PokeImAdaptateur extends RecyclerView.Adapter<PokeImAdaptateur.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         int md = nbpokemon.get(position);
 
+
+
         ImageView urlImageView = holder.urlImageView;
         String url = "https://pokeres.bastionbot.org/images/pokemon/" + md + ".png";
         Picasso.get().load(url).placeholder(R.drawable.pngwing_com).into(urlImageView);

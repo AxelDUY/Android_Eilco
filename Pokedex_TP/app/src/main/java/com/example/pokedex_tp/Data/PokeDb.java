@@ -57,6 +57,6 @@ public class PokeDb {
     @ColumnInfo(name = "positionEvo")
     public int posEvo;
 
-    @ColumnInfo(name = "nbrEvo")
-    public int nbrEvo;
+    @ColumnInfo(name = "ListEvo")
+    public String listEvo;
 }

@@ -11,6 +11,7 @@ import com.example.pokedex_tp.Fragment.Gen1;
 import com.example.pokedex_tp.Fragment.Gen2;
 import com.example.pokedex_tp.Fragment.Gen3;
 import com.example.pokedex_tp.Fragment.Poke_De;
+import com.example.pokedex_tp.Fragment.Poke_Ev;
 import com.example.pokedex_tp.Fragment.Poke_Stat;
 
 public class InfoAdaptateur extends FragmentPagerAdapter {
@@ -35,8 +36,9 @@ public class InfoAdaptateur extends FragmentPagerAdapter {
                 detail.setArguments(data);
                 return detail;
             case 1:
-                Gen2 gen2 = new Gen2();
-                return gen2;
+                Poke_Ev ev = new Poke_Ev();
+                ev.setArguments(data);
+                return ev;
             case 2:
                 Poke_Stat stats = new Poke_Stat();
                 stats.setArguments(data);

@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 import  io.reactivex.rxjava3.core.Observable;
 
 public interface PokedexService {
-    public static final String ENDPOINT = "https://pokeapi.co/api/v2/";
+        public static final String ENDPOINT = "https://pokeapi.co/api/v2/";
 
     @GET("pokemon/{id}")
     Call<Pokemon> getPokemonById(@Path("id") String id);

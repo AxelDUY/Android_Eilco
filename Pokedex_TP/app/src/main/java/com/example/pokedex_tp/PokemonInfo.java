@@ -23,6 +23,8 @@ public class PokemonInfo extends AppCompatActivity {
     double poids = 0;
     String type1 = "";
     String type2 = "";
+    int posevo;
+    String listevo = "";
     int pv;
     int atk;
     int atkspe;
@@ -56,6 +58,8 @@ public class PokemonInfo extends AppCompatActivity {
             if (intent.hasExtra("type2")) {
                 type2 = intent.getStringExtra("type2");
             }
+            posevo = intent.getIntExtra("posEvo",1);
+            listevo = intent.getStringExtra("listevo");
             pv = intent.getIntExtra("pv",1);
             atk = intent.getIntExtra("atk",1);
             atkspe = intent.getIntExtra("atkspe",1);
@@ -77,6 +81,8 @@ public class PokemonInfo extends AppCompatActivity {
             if (!TextUtils.isEmpty(pokeDb.type2)){
                 type2 = pokeDb.type2;
             }
+            posevo = pokeDb.posEvo;
+            listevo = pokeDb.listEvo;
             pv = pokeDb.pv;
             atk = pokeDb.atk;
             atkspe = pokeDb.atkspe;
@@ -96,6 +102,8 @@ public class PokemonInfo extends AppCompatActivity {
         bundle.putDouble("poids",poids);
         bundle.putString("type1", type1);
         bundle.putString("type2", type2);
+        bundle.putInt("posevo", posevo);
+        bundle.putString("listevo", listevo);
         bundle.putInt("pv", pv);
         bundle.putInt("atk", atk);
         bundle.putInt("atkspe", atkspe);

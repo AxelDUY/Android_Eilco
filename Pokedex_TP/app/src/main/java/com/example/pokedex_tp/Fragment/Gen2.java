@@ -48,10 +48,11 @@ public class Gen2 extends Fragment {
     String couleur = "";
     int posEvo = 0;
     int nbrEvo = 0;
+    String listevo = "";
 
     public Gen2() { }
 
-    public void EnregistrerPokemon(Pokemon Pokemon, int i,String nomfr, String couleur, String description,int posEvo, int nbrEvo) {
+    public void EnregistrerPokemon(Pokemon Pokemon, int i,String nomfr, String couleur, String description,int posEvo, String listevo) {
 
         AppDatabase db = AppDatabase.getDbInstance(this.getActivity().getApplicationContext());
         PokeDb pokeDb = new PokeDb();
@@ -75,7 +76,7 @@ public class Gen2 extends Fragment {
         pokeDb.defspe= Pokemon.getStats().get(4).getBase_stat();
         pokeDb.vit = Pokemon.getStats().get(5).getBase_stat();
         pokeDb.posEvo = posEvo;
-        pokeDb.nbrEvo = nbrEvo;
+        pokeDb.listEvo = listevo;
 
         if (TextUtils.isEmpty(nom)){
             db.pokeDAO().insertPoke(pokeDb);
@@ -154,12 +155,18 @@ public class Gen2 extends Fragment {
                                         public void onResponse(Call<List<Evolution>> call, Response<List<Evolution>> response) {
                                             posEvo = response.body().get(0).getFamille().getEvolution_stage();
                                             nbrEvo = response.body().get(0).getFamille().getEvolution_line().size();
+                                            listevo="";
+                                            for(int e = 0; e < nbrEvo;e++){
+                                                if ((posEvo-1) != e){
+                                                    listevo = listevo + "," + response.body().get(0).getFamille().getEvolution_line().get(e);
+                                                }
+                                            }
 
                                             //Appel pour récupérer le type/taille/poid ainsi que l'enregistrement dans la BDD
                                             Pokedexservice.getPokemonById(Integer.toString(id)).enqueue(new Callback<Pokemon>() {
                                                 @Override
                                                 public void onResponse(Call<Pokemon> call, Response<Pokemon> response) {
-                                                    EnregistrerPokemon(response.body(),id,nompoke,couleur,description,posEvo,nbrEvo);
+                                                    EnregistrerPokemon(response.body(),id,nompoke,couleur,description,posEvo,listevo);
                                                     nom = response.body().getName();
 
                                                     //Envoi des données dans la prochaine activité car elles n'ont pas encore été chargées dans la BDD
@@ -181,7 +188,7 @@ public class Gen2 extends Fragment {
                                                     intent.putExtra("defspe", response.body().getStats().get(4).getBase_stat());
                                                     intent.putExtra("vit", response.body().getStats().get(5).getBase_stat());
                                                     intent.putExtra("posEvo", posEvo);
-                                                    intent.putExtra("nbrEvo", nbrEvo);
+                                                    intent.putExtra("listevo", listevo);
 
                                                     //Ouverture de la vue détails du pokemon
                                                     view.getContext().startActivity(intent);
